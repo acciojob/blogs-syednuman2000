@@ -20,7 +20,7 @@ public class Blog {
     @JoinColumn
     private User user;
     @OneToMany(mappedBy = "blog", cascade = CascadeType.ALL)
-    private List<Image> imageList = new ArrayList<>();
+    List<Image> imageList = new ArrayList<>();
 
     public Blog() {
     }
