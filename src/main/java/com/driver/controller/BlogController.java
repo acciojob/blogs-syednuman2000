@@ -16,7 +16,7 @@ public class BlogController {
     BlogService blogService;
 
     @PostMapping
-    public ResponseEntity<Blog> createBlog(@RequestParam Integer userId ,
+    public ResponseEntity<Blog> createAndReturnBlog(@RequestParam Integer userId ,
                                      @RequestParam String title,
                                      @RequestParam String content) {
         // Create a blog and add it under given user
