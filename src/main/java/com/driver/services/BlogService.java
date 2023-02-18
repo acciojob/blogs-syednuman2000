@@ -1,5 +1,6 @@
 package com.driver.services;
 
+import com.driver.DTOs.BlogResponseDto;
 import com.driver.models.Blog;
 import com.driver.models.Image;
 import com.driver.models.User;
@@ -21,10 +22,9 @@ public class BlogService {
     @Autowired
     UserRepository userRepository1;
 
-    public Blog createAndReturnBlog(int userId, String title, String content) {
+    public BlogResponseDto createAndReturnBlog(int userId, String title, String content) {
         //create a blog at the current time
         Blog blog = new Blog();
-        int id = blog.getId();
         blog.setTitle(title);
         blog.setContent(content);
 
@@ -34,9 +34,14 @@ public class BlogService {
 
         userRepository1.save(user);
 
-        blog.setUser(null);
+        BlogResponseDto blogResponseDto = new BlogResponseDto();
+        blogResponseDto.setId(blog.getId());
+        blogResponseDto.setPubDate(blog.getPubDate());
+        blogResponseDto.setTitle(blog.getTitle());
+        blogResponseDto.setContent(blog.getContent());
+        blogResponseDto.setUserId(user.getId());
 
-        return blog;
+        return blogResponseDto;
     }
 
     public void deleteBlog(int blogId){
