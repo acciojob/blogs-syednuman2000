@@ -7,7 +7,7 @@ public class Image{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String discription;
+    private String description;
     private String dimensions;
     @ManyToOne
     @JoinColumn
@@ -24,12 +24,12 @@ public class Image{
         this.id = id;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String discription) {
+        this.description = discription;
     }
 
     public String getDimensions() {
