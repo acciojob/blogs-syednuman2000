@@ -16,12 +16,12 @@ public class BlogController {
     BlogService blogService;
 
     @PostMapping
-    public ResponseEntity<String> createBlog(@RequestParam Integer userId ,
+    public ResponseEntity createBlog(@RequestParam int userId ,
                                      @RequestParam String title,
                                      @RequestParam String content) {
         // Create a blog and add it under given user
         blogService.createAndReturnBlog(userId, title, content);
-        return new ResponseEntity<>("Added blog successfully", HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{blogId}")
