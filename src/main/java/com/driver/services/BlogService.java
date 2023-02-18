@@ -24,6 +24,7 @@ public class BlogService {
     public Blog createAndReturnBlog(Integer userId, String title, String content) {
         //create a blog at the current time
         Blog blog = new Blog();
+        int id = blog.getId();
         blog.setTitle(title);
         blog.setContent(content);
 
@@ -33,7 +34,7 @@ public class BlogService {
 
         userRepository1.save(user);
 
-        return blog;
+        return blogRepository1.findById(id).get();
     }
 
     public void deleteBlog(int blogId){
